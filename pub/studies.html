@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Admin-UI | SW Portfolio</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Admin-UI</h1>
+        <h3>Hantera:</h3>
+        <ul>
+            <li><a href="studies.html">Kurser</a></li>
+            <li><a href="websites.html">Webbsidor</a></li>
+            <li><a href="work.html">Jobb</a></li>
+        </ul>
+        <h2>Kurser:</h2>
+        <table id="courses">
+           <tr>
+               <th><strong>Lärosäte:</strong></th>
+               <th><strong>Namn:</strong></th>
+               <th><strong>Start:</strong></th>
+               <th><strong>Slut:</strong></th>
+           </tr>
+        </table>
+        <h2>Lägg till kurs</h2>
+        <form>
+            <div class="row">
+                <div class="input">
+                    <h3>Lärosäte:</h3>
+                    <input type="text" name="school" id="school">
+                </div>
+                <div class="input">
+                    <h3>Namn:</h3>
+                    <input type="text" name="name" id="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <h3>Start:</h3>
+                    <input type="text" name="startDate" id="startDate">
+                </div>
+                <div class="input">
+                    <h3>Slut:</h3>
+                    <input type="text" name="endDate" id="endDate">
+                </div>
+                <input type="submit" value="Lägg till kurs" id="submit">
+            </div>
+        </form>
+    </div>
+</body>
+<script src="scripts/studies.js"></script>
+</html>

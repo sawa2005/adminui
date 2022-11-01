@@ -1,5 +1,5 @@
 {
-  "name": "package",
+  "name": "sw-portfolio",
   "version": "1.0.0",
   "description": "test",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "keywords": [
     "gulp"
   ],
-  "author": "",
+  "author": "Samuel Ward",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.8",

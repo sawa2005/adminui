@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Admin-UI | SW Portfolio</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Admin-UI</h1>
+        <h3>Hantera:</h3>
+        <ul>
+            <li><a href="studies.html">Kurser</a></li>
+            <li><a href="websites.html">Webbsidor</a></li>
+            <li><a href="work.html">Jobb</a></li>
+        </ul>
+        <h2>Webbsidor:</h2>
+        <table id="websites">
+           <tr>
+               <th><strong>Titel:</strong></th>
+               <th><strong>Länk:</strong></th>
+               <th><strong>Beskrivning:</strong></th>
+               <th><strong>Bild-URL:</strong></th>
+           </tr>
+        </table>
+        <h2>Lägg till webbsida</h2>
+        <form>
+            <div class="row">
+                <div class="input">
+                    <h3>Titel:</h3>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="input">
+                    <h3>Länk:</h3>
+                    <input type="text" name="link" id="link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <h3>Beskrivning:</h3>
+                    <input type="text" name="description" id="description">
+                </div>
+                <div class="input">
+                    <h3>Bild-URL:</h3>
+                    <input type="text" name="imgUrl" id="imgUrl">
+                </div>
+                <input type="submit" value="Lägg till kurs" id="submit">
+            </div>
+        </form>
+    </div>
+</body>
+<script src="scripts/websites.js"></script>
+</html>
