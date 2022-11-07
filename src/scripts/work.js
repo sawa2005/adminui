@@ -2,28 +2,31 @@
 
 // Variabler
 let jobsEl = document.getElementById("jobs");
-let addButton = document.getElementById("submit");
+let addWorkButton = document.getElementById("submit");
+let editWorkButton = document.getElementById("edit-submit");
 let jobInput = document.getElementById("job");
-let titleInput = document.getElementById("title");
-let startInput = document.getElementById("startDate");
-let endInput = document.getElementById("endDate");
+let jobTitleInput = document.getElementById("title");
+let jobStartInput = document.getElementById("startDate");
+let jobEndInput = document.getElementById("endDate");
 
 // Funktioner
 function getJobs() {
     // Återställ kurslistan
-    jobsEl.innerHTML = '<tr><th><strong>Arbetsplats:</strong></th><th><strong>Titel:</strong></th><th><strong>Start:</strong></th><th><strong>Slut:</strong></th></tr>';
+    jobsEl.innerHTML = '<tr><th><strong>ID:</strong></th><th><strong>Arbetsplats:</strong></th><th><strong>Titel:</strong></th><th><strong>Start:</strong></th><th><strong>Slut:</strong></th></tr>';
 
     fetch('https://samuelwarduppgifter.one/restprojekt/work.php')
         .then(response => response.json())
         .then(data => {
+            console.log('Success:', data);
             data.forEach(work => {
                 jobsEl.innerHTML +=
                 `<tr>
+                    <td>${work.id}</td>
                     <td>${work.job}</td>
                     <td>${work.title}</td>
                     <td>${work.startDate}</td>
                     <td>${work.endDate}</td>
-                    <td><button id="${work.id}" onClick="deleteCourse('${work.id}')">Radera</button></td>
+                    <td><button id="${work.id}" onClick="deleteJob('${work.id}')">Radera</button></td>
                 </tr>`
             })
         })
@@ -35,6 +38,32 @@ function deleteJob(id) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log('Success:', data);
+            getJobs();
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        })
+}
+
+function editJob() {
+    event.preventDefault();
+
+    let editId = document.getElementById('edit-id').value;
+    let editJob = document.getElementById('edit-job').value;
+    let editTitle = document.getElementById('edit-title').value;
+    let editStart = document.getElementById('edit-start').value;
+    let editEnd = document.getElementById('edit-end').value;
+
+    let editWork = {'job': editJob, 'title': editTitle, 'startDate': editStart, 'endDate': editEnd};
+
+    fetch("https://samuelwarduppgifter.one/restprojekt/work.php?id=" + editId, {
+        method: 'PUT',
+        body: JSON.stringify(editWork),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
             getJobs();
         })
         .catch(error => {
@@ -43,19 +72,22 @@ function deleteJob(id) {
 }
 
 function addJob() {
-    let job = jobInput.value;
-    let title = titleInput.value;
-    let startDate = startInput.value;
-    let endDate = endInput.value;
+    event.preventDefault();
 
-    let course = {'job': job, 'title': title, 'startDate': startDate, 'endDate': endDate};
+    let job = jobInput.value;
+    let title = jobTitleInput.value;
+    let startDate = jobStartInput.value;
+    let endDate = jobEndInput.value;
+
+    let work = {'job': job, 'title': title, 'startDate': startDate, 'endDate': endDate};
 
     fetch("https://samuelwarduppgifter.one/restprojekt/work.php", {
         method: 'POST',
-        body: JSON.stringify(job),
+        body: JSON.stringify(work),
     })
         .then(response => response.json())
         .then(data => {
+            console.log('Success:', data);
             getJobs();
         })
         .catch(error => {
@@ -65,4 +97,5 @@ function addJob() {
 
 // Eventlyssnare
 window.addEventListener('load', getJobs);
-addButton.addEventListener('click', addJob);
+addWorkButton.addEventListener('click', addJob);
+editWorkButton.addEventListener('click', editJob);

@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="styles/main.css">
     <title>Admin-UI | SW Portfolio</title>
 </head>
 <body>
     <div class="main">
-        <h1 id="login-header">Login</h1>
+        <div class="login">
+            <h1 id="login-header">Login</h1>
         
-        <div id="login-error-msg-holder">
-            <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+            <strong id="login-error-msg">Incorrect username or password!</strong><br><br>
+            
+            <form id="login-form">
+                <input type="text" name="oratwelo" placeholder="Username" id="username" required>
+                <input type="password" name="obasiler" placeholder="Password" id="password" required>
+                <input type="submit" value="Login" id="login-form-submit" class="submit">
+            </form>
         </div>
-        
-        <form id="login-form">
-            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-            <input type="submit" value="Login" id="login-form-submit">
-        </form>
     </div>
 </body>
-<script src="scripts/studies.js"></script>
-<script src="scripts/login.js"></script>
+<script src="scripts/main.js"></script>
 </html>

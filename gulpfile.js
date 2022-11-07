@@ -10,10 +10,9 @@ var browserSync = require('browser-sync').create();
 // File directories
 const files = {
     htmlPath: "src/**/*.html",
-    cssPath: "src/css/*.css",
-    sassPath: "src/styles/*.scss",
+    cssPath: "src/styles/*.css",
+    sassPath: "src/scss/*.scss",
     jsPath: "src/scripts/*.js",
-    babelPath: "src/babel/*.js",
     imgPath: "src/images/*"
 }
 
@@ -21,7 +20,7 @@ const files = {
 function sassTask() {
     return src(files.sassPath)
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('src/css')
+    .pipe(dest('src/styles')
     );
 }
 
@@ -39,18 +38,9 @@ function cssTask() {
     .pipe(dest('pub/styles'));
 }
 
-// Babel-task / Gör JavaScript-kod kompatibel med "alla" webbläsare
-function babelTask() {
-    return src(files.jsPath)
-    .pipe(babel({
-        presets: ['@babel/env']
-    }))
-    .pipe(dest('src/babel'));
-}
-
 // JS-task / Kopierar, konkatenerar och minimerar JS-filerna
 function jsTask() {
-    return src(files.babelPath)
+    return src(files.jsPath)
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(dest('pub/scripts'));
@@ -66,7 +56,7 @@ function imgTask() {
 function browsersyncServer(cb) {
     browserSync.init({
         server: {
-            baseDir: 'src'
+            baseDir: 'pub'
         }
     });
     cb();
@@ -83,16 +73,14 @@ function watchTask(){
     watch([files.sassPath, files.jsPath], browsersyncReload);
     watch(files.htmlPath, copyHTML);
     watch(files.sassPath, sassTask);
-    watch(files.jsPath, babelTask);
-    watch(files.babelPath, jsTask);
+    watch(files.jsPath, jsTask);
     watch(files.cssPath, cssTask);
     watch(files.imgPath, imgTask);
 }
 
 // Exporterar alla tasks
 exports.default = series(
-    copyHTML,
-    babelTask, 
+    copyHTML, 
     jsTask, 
     imgTask,
     sassTask,

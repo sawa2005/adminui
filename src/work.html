@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="styles/main.css">
     <title>Admin-UI | SW Portfolio</title>
 </head>
 <body>
@@ -19,37 +19,70 @@
         <h2>Jobb:</h2>
         <table id="jobs">
            <tr>
-               <th><strong>Arbetsplats:</strong></th>
-               <th><strong>Titel:</strong></th>
-               <th><strong>startDate:</strong></th>
-               <th><strong>endDate:</strong></th>
+                <th><strong>ID:</strong></th>
+                <th><strong>Arbetsplats:</strong></th>
+                <th><strong>Titel:</strong></th>
+                <th><strong>startDate:</strong></th>
+                <th><strong>endDate:</strong></th>
            </tr>
         </table>
-        <h2>Lägg till jobb</h2>
-        <form>
-            <div class="row">
-                <div class="input">
-                    <h3>Arbetsplats:</h3>
-                    <input type="text" name="job" id="job">
+        <div>
+            <h2>Lägg till jobb</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>Arbetsplats:</h3>
+                        <input type="text" name="job" id="job">
+                    </div>
+                    <div class="input">
+                        <h3>Titel:</h3>
+                        <input type="text" name="title" id="title">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Titel:</h3>
-                    <input type="text" name="title" id="title">
+                <div class="row">
+                    <div class="input">
+                        <h3>Start:</h3>
+                        <input type="text" name="startDate" id="startDate">
+                    </div>
+                    <div class="input">
+                        <h3>Slut:</h3>
+                        <input type="text" name="endDate" id="endDate">
+                    </div>
+                    <input type="submit" value="Lägg till jobb" id="submit" class="submit">
                 </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <h3>Start:</h3>
-                    <input type="text" name="startDate" id="startDate">
+            </form>
+        </div>
+        <div>
+            <h2>Redigera jobb</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>ID:</h3>
+                        <input type="text" name="editId" id="edit-id">
+                    </div>
+                    <div class="input">
+                        <h3>Arbetsplats:</h3>
+                        <input type="text" name="editJob" id="edit-job">
+                    </div>
+                    <div class="input">
+                        <h3>Titel:</h3>
+                        <input type="text" name="editTitle" id="edit-title">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Slut:</h3>
-                    <input type="text" name="endDate" id="endDate">
+                <div class="row">
+                    <div class="input">
+                        <h3>Start:</h3>
+                        <input type="text" name="editStart" id="edit-start">
+                    </div>
+                    <div class="input">
+                        <h3>Slut:</h3>
+                        <input type="text" name="editEnd" id="edit-end">
+                    </div>
+                    <input type="submit" value="Redigera jobb" id="edit-submit" class="submit">
                 </div>
-                <input type="submit" value="Lägg till jobb" id="submit">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
-<script src="scripts/work.js"></script>
+<script src="scripts/main.js"></script>
 </html>

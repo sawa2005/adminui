@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="styles/main.css">
     <title>Admin-UI | SW Portfolio</title>
 </head>
 <body>
@@ -19,37 +19,78 @@
         <h2>Kurser:</h2>
         <table id="courses">
            <tr>
-               <th><strong>Lärosäte:</strong></th>
-               <th><strong>Namn:</strong></th>
-               <th><strong>Start:</strong></th>
-               <th><strong>Slut:</strong></th>
+                <th><strong>ID:</strong></th>
+                <th><strong>Lärosäte:</strong></th>
+                <th><strong>Namn:</strong></th>
+                <th><strong>Start:</strong></th>
+                <th><strong>Slut:</strong></th>
            </tr>
         </table>
-        <h2>Lägg till kurs</h2>
-        <form>
-            <div class="row">
-                <div class="input">
-                    <h3>Lärosäte:</h3>
-                    <input type="text" name="school" id="school">
+        <div>
+            <h2>Lägg till kurs</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>Lärosäte:</h3>
+                        <input type="text" name="school" id="school">
+                    </div>
+                    <div class="input">
+                        <h3>Namn:</h3>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div class="input">
+                        <h3>Typ:</h3>
+                        <input type="text" name="type" id="type">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Namn:</h3>
-                    <input type="text" name="name" id="name">
+                <div class="row">
+                    <div class="input">
+                        <h3>Start:</h3>
+                        <input type="text" name="startDate" id="startDate">
+                    </div>
+                    <div class="input">
+                        <h3>Slut:</h3>
+                        <input type="text" name="endDate" id="endDate">
+                    </div>
+                    <input type="submit" value="Lägg till kurs" id="submit" class="submit">
                 </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <h3>Start:</h3>
-                    <input type="text" name="startDate" id="startDate">
+            </form>
+        </div>
+        <div>
+            <h2>Redigera kurs</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>ID:</h3>
+                        <input type="text" name="editId" id="edit-id">
+                    </div>
+                    <div class="input">
+                        <h3>Lärosäte:</h3>
+                        <input type="text" name="editSchool" id="edit-school">
+                    </div>
+                    <div class="input">
+                        <h3>Namn:</h3>
+                        <input type="text" name="editName" id="edit-name">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Slut:</h3>
-                    <input type="text" name="endDate" id="endDate">
+                <div class="row">
+                    <div class="input">
+                        <h3>Typ:</h3>
+                        <input type="text" name="editType" id="edit-type">
+                    </div>
+                    <div class="input">
+                        <h3>Start:</h3>
+                        <input type="text" name="editStartDate" id="edit-startDate">
+                    </div>
+                    <div class="input">
+                        <h3>Slut:</h3>
+                        <input type="text" name="editEndDate" id="edit-endDate">
+                    </div>
+                    <input type="submit" value="Redigera kurs" id="edit-submit" class="submit">
                 </div>
-                <input type="submit" value="Lägg till kurs" id="submit">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
-<script src="scripts/studies.js"></script>
+<script src="scripts/main.js"></script>
 </html>

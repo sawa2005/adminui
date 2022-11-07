@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="scripts/main.js">
     <title>Admin-UI | SW Portfolio</title>
 </head>
 <body>
@@ -19,37 +19,86 @@
         <h2>Webbsidor:</h2>
         <table id="websites">
            <tr>
-               <th><strong>Titel:</strong></th>
-               <th><strong>Länk:</strong></th>
-               <th><strong>Beskrivning:</strong></th>
-               <th><strong>Bild-URL:</strong></th>
+                <th><strong>ID:</strong></th>
+                <th><strong>Titel:</strong></th>
+                <th><strong>Länk:</strong></th>
+                <th><strong>Beskrivning:</strong></th>
+                <th><strong>Bild-URL:</strong></th>
            </tr>
         </table>
-        <h2>Lägg till webbsida</h2>
-        <form>
-            <div class="row">
-                <div class="input">
-                    <h3>Titel:</h3>
-                    <input type="text" name="title" id="title">
+        <div>
+            <h2>Lägg till webbsida</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>Titel:</h3>
+                        <input type="text" name="title" id="title">
+                    </div>
+                    <div class="input">
+                        <h3>Typ:</h3>
+                        <input type="text" name="type" id="type">
+                    </div>
+                    <div class="input">
+                        <h3>Länk:</h3>
+                        <input type="text" name="link" id="link">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Länk:</h3>
-                    <input type="text" name="link" id="link">
+                <div class="row">
+                    <div class="input">
+                        <h3>Beskrivning:</h3>
+                        <input type="text" name="description" id="description">
+                    </div>
+                    <div class="input">
+                        <h3>Bild-URL:</h3>
+                        <input type="text" name="imgUrl" id="imgUrl">
+                    </div>
+                    <div class="input">
+                        <h3>År:</h3>
+                        <input type="text" name="year" id="year">
+                    </div>
+                    <input type="submit" value="Lägg till webbsida" id="submit" class="submit">
                 </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <h3>Beskrivning:</h3>
-                    <input type="text" name="description" id="description">
+            </form>
+        </div>
+        <div>
+            <h2>Redigera webbsida</h2>
+            <form>
+                <div class="row">
+                    <div class="input">
+                        <h3>ID:</h3>
+                        <input type="text" name="editId" id="edit-id">
+                    </div>
+                    <div class="input">
+                        <h3>Titel:</h3>
+                        <input type="text" name="editTitle" id="edit-title">
+                    </div>
+                    <div class="input">
+                        <h3>Typ:</h3>
+                        <input type="text" name="editType" id="edit-type">
+                    </div>
+                    <div class="input">
+                        <h3>Länk:</h3>
+                        <input type="text" name="editLink" id="edit-link">
+                    </div>
                 </div>
-                <div class="input">
-                    <h3>Bild-URL:</h3>
-                    <input type="text" name="imgUrl" id="imgUrl">
+                <div class="row">
+                    <div class="input">
+                        <h3>Beskrivning:</h3>
+                        <input type="text" name="editDescription" id="edit-description">
+                    </div>
+                    <div class="input">
+                        <h3>Bild-URL:</h3>
+                        <input type="text" name="editImgUrl" id="edit-imgUrl">
+                    </div>
+                    <div class="input">
+                        <h3>År:</h3>
+                        <input type="text" name="editYear" id="edit-year">
+                    </div>
+                    <input type="submit" value="Redigera webbsida" id="edit-submit" class="submit">
                 </div>
-                <input type="submit" value="Lägg till kurs" id="submit">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
-<script src="scripts/websites.js"></script>
+<script src="scripts/main.js"></script>
 </html>

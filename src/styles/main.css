@@ -3,7 +3,7 @@ form, table, a, p, h3, h2, h1 {
   font-size: 1.1em;
 }
 
-button, #submit {
+button, .submit {
   width: auto;
   height: auto;
   border-style: none;
@@ -61,7 +61,7 @@ a {
 }
 
 td {
-  padding-right: 100px;
+  padding-right: 30px;
   padding-top: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid black;
@@ -90,12 +90,27 @@ input {
   padding: 5px;
 }
 
-#submit {
+.submit {
   background-color: #32a852;
 }
 
 #submit:hover {
   background-color: #26813f;
+}
+
+#login-form {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: auto;
+  align-items: center;
+}
+
+#login-error-msg {
+  color: darkred;
+  opacity: 0;
 }
 
 button {

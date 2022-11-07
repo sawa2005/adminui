@@ -95,7 +95,7 @@ table {
 }
 
 td {
-    padding-right: 100px;
+    padding-right: 30px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid black;
@@ -125,13 +125,28 @@ input {
     padding: 5px;
 }
 
-#submit {
+.submit {
     @extend %button-shared;
     background-color: $accent-color;
 }
 
 #submit:hover {
     background-color: darken($accent-color, 10%);
+}
+
+#login-form {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: auto;
+    align-items: center;
+}
+
+#login-error-msg {
+    color: darkred;
+    opacity: 0;
 }
 
 button {
