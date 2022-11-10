@@ -15,6 +15,7 @@ function getCourses() {
     // Återställ kurslistan
     coursesEl.innerHTML = '<tr><th><strong>ID:</strong></th><th><strong>Lärosäte:</strong></th><th><strong>Namn:</strong></th><th><strong>Typ:</strong></th><th><strong>Start:</strong></th><th><strong>Slut:</strong></th></tr>';
 
+    // Hämta och skriv ut kurser
     fetch('https://samuelwarduppgifter.one/restprojekt/studies.php')
         .then(response => response.json())
         .then(data => {
@@ -32,8 +33,13 @@ function getCourses() {
                 </tr>`
             })
         })
+        // Om ett fel uppstår skriv ut felet
+        .catch(error => {
+            console.log('Error:', error);
+        })
 }
 
+// Hämta och ta bort kurs med rätt id
 function deleteCourse(id) {
     fetch("https://samuelwarduppgifter.one/restprojekt/studies.php?id=" + id, {
         method: 'DELETE',
@@ -49,8 +55,10 @@ function deleteCourse(id) {
 }
 
 function editCourse() {
+    // Hindrar submit-knappen från att ladda om sidan
     event.preventDefault();
 
+    // Variabler för nya värden
     let editId = document.getElementById("edit-id").value;
     let editSchool = document.getElementById("edit-school").value;
     let editName = document.getElementById("edit-name").value;
@@ -60,6 +68,7 @@ function editCourse() {
 
     let editCourse = {'school': editSchool, 'name': editName, 'type': editStudiesType, 'startDate': editStart, 'endDate': editEnd};
 
+    // Hämtar och uppdaterar kurs med rätt värden
     fetch("https://samuelwarduppgifter.one/restprojekt/studies.php?id=" + editId, {
         method: 'PUT',
         headers: {
@@ -80,6 +89,7 @@ function editCourse() {
 function addCourse() {
     event.preventDefault();
 
+    // Variabler för kursens värden
     let school = schoolInput.value;
     let name = nameInput.value;
     let type = studiesTypeInput.value;
@@ -90,6 +100,7 @@ function addCourse() {
 
     console.log(JSON.stringify(course));
 
+    // Lägger till kursen
     fetch("https://samuelwarduppgifter.one/restprojekt/studies.php", {
         method: 'POST',
         headers: {

@@ -13,9 +13,10 @@ let yearInput = document.getElementById("year");
 
 // Funktioner
 function getWebsites() {
-    // Återställ kurslistan
+    // Återställ webbsidolistan
     websitesEl.innerHTML = '<tr><th><strong>ID:</strong></th><th><strong>Titel:</strong></th><th><strong>Typ:</strong></th><th><strong>Länk:</strong></th><th><strong>Beskrivning:</strong></th><th><strong>Bild-URL:</strong></th><th><strong>År:</strong></th></tr>';
 
+    // Hämta och skriv ut webbsidor
     fetch('https://samuelwarduppgifter.one/restprojekt/websites.php')
         .then(response => response.json())
         .then(data => {
@@ -34,8 +35,13 @@ function getWebsites() {
                 </tr>`
             })
         })
+        // Om ett fel uppstår skriv ut felet
+        .catch(error => {
+            console.log('Error:', error);
+        })
 }
 
+// Hämta och ta bort webbsida med rätt id
 function deleteWebsite(id) {
     fetch("https://samuelwarduppgifter.one/restprojekt/websites.php?id=" + id, {
         method: 'DELETE',
@@ -51,8 +57,10 @@ function deleteWebsite(id) {
 }
 
 function editWebsite() {
+    // Hindrar submit-knappen från att ladda om sidan
     event.preventDefault();
 
+    // Variabler för nya värden
     let editId = document.getElementById("edit-id").value;
     let editTitle = document.getElementById("edit-title").value;
     let editWebType = document.getElementById("edit-type").value;
@@ -63,8 +71,7 @@ function editWebsite() {
 
     let editWebsite = {'title': editTitle, 'type': editWebType, 'link': editLink, 'description': editDescription, 'image': editImgUrl, 'year': editYear};
 
-    console.log(JSON.stringify(editWebsite));
-
+    // Hämtar och uppdaterar webbsida med rätt värden
     fetch("https://samuelwarduppgifter.one/restprojekt/websites.php?id=" + editId, {
         method: 'PUT',
         headers: {
@@ -85,6 +92,7 @@ function editWebsite() {
 function addWebsite() {
     event.preventDefault();
 
+    // Variabler för webbsidans värden
     let title = webTitleInput.value;
     let type = webTypeInput.value;
     let link = linkInput.value;
@@ -94,6 +102,7 @@ function addWebsite() {
 
     let website = {'title': title, 'type': type, 'link': link, 'description': description, 'imgUrl': imgUrl, 'year': year};
 
+    // Lägger till webbsidan
     fetch("https://samuelwarduppgifter.one/restprojekt/websites.php", {
         method: 'POST',
         headers: {

@@ -11,9 +11,10 @@ let jobEndInput = document.getElementById("endDate");
 
 // Funktioner
 function getJobs() {
-    // Återställ kurslistan
+    // Återställ jobblistan
     jobsEl.innerHTML = '<tr><th><strong>ID:</strong></th><th><strong>Arbetsplats:</strong></th><th><strong>Titel:</strong></th><th><strong>Start:</strong></th><th><strong>Slut:</strong></th></tr>';
 
+    // Hämta och skriv ut jobb
     fetch('https://samuelwarduppgifter.one/restprojekt/work.php')
         .then(response => response.json())
         .then(data => {
@@ -30,8 +31,13 @@ function getJobs() {
                 </tr>`
             })
         })
+        // Om ett fel uppstår skriv ut felet
+        .catch(error => {
+            console.log('Error:', error);
+        })
 }
 
+// Hämta och ta bort jobb med rätt id
 function deleteJob(id) {
     fetch("https://samuelwarduppgifter.one/restprojekt/work.php?id=" + id, {
         method: 'DELETE',
@@ -47,8 +53,10 @@ function deleteJob(id) {
 }
 
 function editJob() {
+    // Hindrar submit-knappen från att ladda om sidan
     event.preventDefault();
 
+    // Variabler för nya värden
     let editId = document.getElementById('edit-id').value;
     let editJob = document.getElementById('edit-job').value;
     let editTitle = document.getElementById('edit-title').value;
@@ -57,6 +65,7 @@ function editJob() {
 
     let editWork = {'job': editJob, 'title': editTitle, 'startDate': editStart, 'endDate': editEnd};
 
+    // Hämtar och uppdaterar kurs med rätt värden
     fetch("https://samuelwarduppgifter.one/restprojekt/work.php?id=" + editId, {
         method: 'PUT',
         body: JSON.stringify(editWork),
@@ -74,6 +83,7 @@ function editJob() {
 function addJob() {
     event.preventDefault();
 
+    // Variabler för jobbets värden
     let job = jobInput.value;
     let title = jobTitleInput.value;
     let startDate = jobStartInput.value;
@@ -81,6 +91,7 @@ function addJob() {
 
     let work = {'job': job, 'title': title, 'startDate': startDate, 'endDate': endDate};
 
+    // Lägger till jobbet
     fetch("https://samuelwarduppgifter.one/restprojekt/work.php", {
         method: 'POST',
         body: JSON.stringify(work),

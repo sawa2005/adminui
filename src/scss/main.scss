@@ -1,3 +1,4 @@
+// Variabler
 $light-primary-color: #fff;
 $light-secondary-color: #ddd;
 $light-text: #000;
@@ -6,6 +7,7 @@ $dark-secondary-color: #000;
 $dark-text: #fff;
 $accent-color: #32a852;
 
+// Mixins
 @mixin theme($light-theme: true) {
     @if $light-theme {
         background-color: $light-primary-color;
@@ -24,6 +26,7 @@ $accent-color: #32a852;
     }
 }
 
+// Extensions
 %text-shared {
     font-family: Cambria, 'Times New Roman', serif;
     font-size: 1.1em;
@@ -39,7 +42,7 @@ $accent-color: #32a852;
     cursor: pointer;
 }
 
-/* Main CSS-code */
+// Main CSS-code
 * {
     margin: 0;
     padding: 0;
@@ -166,7 +169,7 @@ a:visited {
     color: darken($accent-color, 20%);
 }
 
-/* Responsive CSS-code */
+// Responsive CSS-code
 @media (max-width: 850px) {
     .main {
         padding: 0;

@@ -1,3 +1,4 @@
+// Nödvändiga paket
 const gulp = require("gulp");
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
@@ -7,7 +8,7 @@ const { src, dest, series, watch, task } = require('gulp');
 var sass = require('gulp-sass')(require('sass'));
 var browserSync = require('browser-sync').create();
 
-// File directories
+// Filkataloger
 const files = {
     htmlPath: "src/**/*.html",
     cssPath: "src/styles/*.css",
