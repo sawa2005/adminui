@@ -23,7 +23,7 @@ same course. The use of the UI is quite simple, after passing the login simply u
 ```
 git clone https://github.com/sawa2005/adminui.git
 ```
-* Install the dependencies npm and Gulp.
+* Install the dependencies npm and Gulp (install guides on their respective websites).
 * Install the npm packages needed using the following command:
 ```
 npm i
